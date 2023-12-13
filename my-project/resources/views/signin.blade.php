@@ -6,6 +6,7 @@
     <title>Iniciar sessión</title>
 </head>
 <body>
+    <h1>Login</h1>
     <!-- Formulari de Inici de sessió -->
     <form action='{{ route("usuaris") }}' method="post">
         @csrf

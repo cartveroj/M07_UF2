@@ -105,7 +105,7 @@ class AdminController extends Controller
         $password = $request->input('password');
 
     // Si els valors son iguals a les credencials de Admin, retornara la view admin
-        return $email == "orojas@iticbcn.cat" && $password == "12345" 
+        return $email == "obret" && $password == "sesam" 
                          ? view('Admin.admin') : view('signin'); 
     }
 
