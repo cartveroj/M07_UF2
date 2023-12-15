@@ -85,8 +85,8 @@ class AlumnatController extends Controller
         $alumne = Alumnat::findOrFail($id);
 
         // Actualiza los campos del modelo con los datos del formulario
-        $alumne->name = $request->input('name', $alumne->name);
-        $alumne->surname = $request->input('surname', $alumne->surname);
+        $alumne->name = $request->input('nom', $alumne->nom);
+        $alumne->surname = $request->input('cognom', $alumne->cognom);
         $alumne->email = $request->input('email', $alumne->email);
 
         // Guarda los cambios en la base de datos
