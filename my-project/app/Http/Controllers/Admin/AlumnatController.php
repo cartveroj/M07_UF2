@@ -46,7 +46,6 @@ class AlumnatController extends Controller
             'nom' => $request->input('nom'),
             'cognom' => $request->input('cognom'),
             'email' => $request->input('email'),
-            // Puedes agregar más campos según tus necesidades
         ]);
 
         return view('Admin.Alumnat.createAlumnat');
@@ -67,7 +66,7 @@ class AlumnatController extends Controller
      */
     public function edit(Alumnat $alumnat)
     {
-        return view('Admin.Alumnat.updateAlumnat', ['alumne' => $alumnat]);
+        return view('Admin.Alumnat.updateAlumnat', ['alumnat' => $alumnat]);
     }
 
     /**

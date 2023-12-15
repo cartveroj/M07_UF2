@@ -8,10 +8,9 @@
 <body>
     <h1>EDITAR ALUMNAT</h1>
     <div class="form">
-        <form action="{{ route('updateAlumnat', $alumne['id']) }}" method="post">
+        <form action="{{ route('updateAlumnat', $alumnat->id) }}" method="post">
             @csrf
             @method('PUT')
-            <input type="hidden" name="_token" >
             <div class="mb-3"> 
                 <label for="name">Nom </label>
                 <input type="text" name="name">
