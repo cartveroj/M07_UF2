@@ -10,7 +10,7 @@
     <div>
         <a href="{{ route('centres') }}">CENTRES</a>
         <a href="{{ route('professorat') }}">PROFESSORAT</a>
-        <a href="{{ route('alumnat') }}">ALUMNAT</a>
+        <a href="{{ route('getAlumnat') }}">ALUMNAT</a>
     </div><br>
     <a href="{{ route('signin') }}">Log Out</a>
 </body>

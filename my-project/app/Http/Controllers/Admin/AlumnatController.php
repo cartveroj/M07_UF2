@@ -37,7 +37,7 @@ class AlumnatController extends Controller
         $request->validate([
             'nom' => 'required|string',
             'cognom' => 'required|string',
-            'email' => 'required|email|unique:alumnats,email',
+            'email' => 'required|email|unique:alumnat,email',
         ]);
 
         //guardar a la tabla.Laravel gestiona la consulta de guardar les dades del formulari a la taula especificada en el projecte de Laravel
@@ -47,7 +47,6 @@ class AlumnatController extends Controller
             'cognom' => $request->input('cognom'),
             'email' => $request->input('email'),
         ]);
-
         return view('Admin.Alumnat.createAlumnat');
     }
 

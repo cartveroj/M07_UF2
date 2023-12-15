@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\AlumnatController;
         Route::get('/professorat', [AdminController::class, 'professorat'])->name('professorat');
         
         // Funcionalitat alumnat que utilitza la funció 'alumnat' del controlador
-        Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
+        // Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
 
         Route::get('/admin_view', [AdminController::class, 'adminView'])->name('admin_view'); // retorna a la vista de admin
     
