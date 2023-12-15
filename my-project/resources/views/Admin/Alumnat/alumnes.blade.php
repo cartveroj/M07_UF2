@@ -24,9 +24,11 @@
             <td>{{ $alumne['cognom'] }}</td>
             <td>{{ $alumne['rol'] }}</td>
             <td>{{ $alumne['email'] }}</td>
+            <td> <a href="{{ route('editAlumnat', $alumne['id']) }}">EDIT</a></td>
         </tr>
         @endforeach
     </table><br>
+    <a href="{{ route('createAlumnat') }}">ADD Alumne</a>
     <a href="{{ route('admin_view') }}">ADMIN VISTA</a> <!-- retorna a la view de admin-->
 </body>
 </html>

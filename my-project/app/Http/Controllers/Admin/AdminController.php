@@ -96,7 +96,7 @@ class AdminController extends Controller
                 "email" => "laia@laia.com",
             ),
         );
-        return view('Admin.alumnes')->with(['alumnes' => $alumnes]);
+        return view('Admin.Alumnat.alumnes')->with(['alumnes' => $alumnes]);
     }
 
     // Obte les dades del formulari de inici i comprova que siguin correctes
