@@ -22,10 +22,21 @@
             <td>{{ $professor['cognom'] }}</td>
             <td>{{ $professor['rol'] }}</td>
             <td>{{ $professor['email'] }}</td>
+            <td><a href="{{ route('editProfessorat', ['id' => $professor['id']]) }}"><button>edit</button></a></td>
+            <td><form action="{{ route('destroyProfessorat', ['id' => $professor['id']]) }}" method="post">
+                    @csrf
+                    @method('DELETE')        
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </table><br>
-    <!-- retorna a la view de admin-->
-    <a href="{{ route('admin_view') }}">ADMIN VISTA</a> 
+    <a href="{{ route('createProfessorat')}}"><button>INSERT</button></a>
+    <br>
+    <br>
+    <!-- retorna a la view de admin--> 
+    <a href="{{ route('admin_view') }}">ADMIN VISTA</a>
 </body>
 </html>
+

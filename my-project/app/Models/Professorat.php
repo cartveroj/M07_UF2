@@ -10,7 +10,7 @@ class Professorat extends Model
     use HasFactory;
 
     protected $table = 'professorat';
-
+    protected $primaryKey = 'id';
     // Indica els camps que omplira
     protected $fillable = [
         'nom',

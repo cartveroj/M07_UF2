@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Admin\ProfessoratController;
 
 class AdminController extends Controller
 {
@@ -31,37 +32,8 @@ class AdminController extends Controller
 
     // Funció que retorna les dades dels professors a la view del professorat
     public function professorat() {
-        $professors = array(
-            array(
-                "id" => "1",
-                "nom" => "Roger",  
-                "cognom" => "Sobrino",
-                "rol" => "Professor",
-                "email" => "roger@roger.com",
-            ),
-            array(
-                "id" => "2",
-                "nom" => "Sara",  
-                "cognom" => "Gonzalez",
-                "rol" => "Professora",
-                "email" => "sara@sara.com",
-            ),
-            array(
-                "id" => "3",
-                "nom" => "Pere",  
-                "cognom" => "Guitart",
-                "rol" => "Professor",
-                "email" => "pere@pere.com",
-            ),
-            array(
-                "id" => "4",
-                "nom" => "Oriol",  
-                "cognom" => "Xisco",
-                "rol" => "Professor",
-                "email" => "sara@sara.com",
-            ),
-        );
-        return view('Admin.professorat')->with(['professors' => $professors ]);     
+
+        return redirect()->route('getProfessorat');
     }
 
     // Funció que té un array de alumnes i retorna els valor a la view de Admin

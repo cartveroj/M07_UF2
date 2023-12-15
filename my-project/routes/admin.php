@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProfessoratController;
 
     // Ambits de rutes de admin_db
     Route::middleware(['admin_db'])->group(function() {
@@ -17,4 +18,13 @@ use App\Http\Controllers\Admin\AdminController;
         Route::get('/alumnat', [AdminController::class, 'alumnat'])->name('alumnat');
 
         Route::get('/admin_view', [AdminController::class, 'adminView'])->name('admin_view'); // retorna a la vista de admin
-    });
+        
+
+        //professorat
+         Route::get('/GetProfessorat', [ProfessoratController::class, 'index'])->name('getProfessorat');
+         Route::get('/formProfessorat', [ProfessoratController::class, 'create'])->name('createProfessorat');
+         Route::post('/InsertProfessorat', [ProfessoratController::class, 'store'])->name('insertProfessorat');
+         Route::get('/professorat/{id}/edit', [ProfessoratController::class, 'edit'])->name('editProfessorat');
+         Route::put('/UpdateProfessorat/{id}', [ProfessoratController::class, 'update'])->name('updateProfessorat');
+         Route::delete('/DeleteProfessorat/{id}', [ProfessoratController::class, 'destroy'])->name('destroyProfessorat');
+        }); 
