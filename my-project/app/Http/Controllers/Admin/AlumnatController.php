@@ -16,7 +16,7 @@ class AlumnatController extends Controller
         //Hace un get de alumnos
         $alumnes = Alumnat::all();
 
-        //retorna a la vista alumnat
+        //retorna a la vista alumnat con los resultados
         return view('Admin.Alumnat.alumnes', ['alumnes' => $alumnes] );
     }
 
@@ -25,7 +25,7 @@ class AlumnatController extends Controller
      */
     public function create()
     {
-        //fichero de view
+        //fichero de view con el formulario
         return view('Admin.Alumnat.createAlumnat');
     }
 
@@ -34,6 +34,7 @@ class AlumnatController extends Controller
      */
     public function store(Request $request)
     {   
+        //comprueba los campos del formulario
         $request->validate([
             'nom' => 'required|string',
             'cognom' => 'required|string',
@@ -48,6 +49,7 @@ class AlumnatController extends Controller
             'email' => $request->input('email'),
         ]);
         return view('Admin.Alumnat.createAlumnat');
+        // return view('Admin.Alumnat.createAlumnat')->with('success', 'Alumne afegit correctament');
     }
 
     /**
@@ -55,6 +57,7 @@ class AlumnatController extends Controller
      */
     public function show(Alumnat $alumnat)
     {
+        //la funcion show() sirve para mostrar los detalles de uno en especifico, puede buscarse por id 
         // Obtiene todos los alumnos
         $alumnes = Alumnat::all();
         return view('Admin.Alumnat.alumnes', ['alumnes' => $alumnes]);
@@ -103,5 +106,8 @@ class AlumnatController extends Controller
     public function destroy(Alumnat $alumnat)
     {
         //
+        $alumnat->delete();
+
+        return view('Admin.Alumnat.alumnes', ['alumnat' => $alumnat]);
     }
 }

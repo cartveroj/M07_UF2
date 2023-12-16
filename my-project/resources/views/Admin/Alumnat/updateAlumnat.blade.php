@@ -12,12 +12,12 @@
             @csrf
             @method('PUT')
             <div class="mb-3"> 
-                <label for="name">Nom </label>
-                <input type="text" name="name">
+                <label for="nom">Nom </label>
+                <input type="text" name="nom">
             </div>
             <div class="mb-3"> 
-                <label for="surname">Cognom </label>
-                <input type="text" name="surname">
+                <label for="cognom">Cognom </label>
+                <input type="text" name="cognom">
             </div>
             <div class="mb-3"> 
                 <label for="email">Email</label>

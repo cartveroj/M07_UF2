@@ -25,6 +25,7 @@
             <td>{{ $alumne['rol'] }}</td>
             <td>{{ $alumne['email'] }}</td>
             <td> <a href="{{ route('editAlumnat', $alumne['id']) }}">EDIT</a></td>
+            <td> <a href="{{ route('destroyAlumnat', $alumne['id']) }}">DELETE</a></td>
         </tr>
         @endforeach
     </table><br>
