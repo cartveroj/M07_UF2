@@ -25,7 +25,13 @@
             <td>{{ $alumne['rol'] }}</td>
             <td>{{ $alumne['email'] }}</td>
             <td> <a href="{{ route('editAlumnat', $alumne['id']) }}">EDIT</a></td>
-            <td> <a href="{{ route('destroyAlumnat', $alumne['id']) }}">DELETE</a></td>
+            <td>
+                <form method="post" action="{{route('destroyAlumnat', $alumne->id)}}">
+                    @method('delete')
+                    @csrf
+                    <button type="submit">DELETE</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </table><br>

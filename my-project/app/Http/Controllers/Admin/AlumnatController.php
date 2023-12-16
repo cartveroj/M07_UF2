@@ -103,11 +103,11 @@ class AlumnatController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Alumnat $alumnat)
+    public function destroy($id)
     {
-        //
-        $alumnat->delete();
+        $alumne = Alumnat::findOrFail($id);
+        $alumne->delete();
 
-        return view('Admin.Alumnat.alumnes', ['alumnat' => $alumnat]);
+        return redirect()->route('getAlumnat');
     }
 }
