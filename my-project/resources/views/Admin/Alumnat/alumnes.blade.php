@@ -34,7 +34,7 @@
         </tr>
         @endforeach
     </table><br>
-    <a href="{{ route('createAlumnat') }}">ADD Alumne</a>
+    <button type="button" onclick="window.location='{{ route('createAlumnat') }}'">ADD Alumne</button><br>
     <a href="{{ route('admin_view') }}">ADMIN VISTA</a> <!-- retorna a la view de admin-->
 </body>
 </html>
