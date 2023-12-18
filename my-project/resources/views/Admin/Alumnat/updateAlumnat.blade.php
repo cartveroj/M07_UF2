@@ -13,15 +13,15 @@
             @method('PUT')
             <div class="mb-3"> 
                 <label for="nom">Nom </label>
-                <input type="text" name="nom">
+                <input type="text" name="nom" value="{{ $alumnat->nom }}">
             </div>
             <div class="mb-3"> 
                 <label for="cognom">Cognom </label>
-                <input type="text" name="cognom">
+                <input type="text" name="cognom" value="{{ $alumnat->cognom }}">
             </div>
             <div class="mb-3"> 
                 <label for="email">Email</label>
-                <input type="email" name="email">
+                <input type="email" name="email" value="{{ $alumnat->email }}">
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Enviar</button>
         </form><br>

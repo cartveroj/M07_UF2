@@ -66,38 +66,38 @@ class AlumnatController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Alumnat $alumnat)
+    public function edit($id)
     {
+        //si se le pasa el objeto no hace falta hacer un findOrFail($id), laravel lo hace automatico
+        $alumnat = Alumnat::findOrFail($id);
+        //gestiona el form
         return view('Admin.Alumnat.updateAlumnat', ['alumnat' => $alumnat]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Alumnat $alumnat)
+    public function update(Request $request,$id)
     {
+        $alumnat = Alumnat::findOrFail($id);
         // Valida los datos del formulario
         //sometimes|required => el campo es requerido pero no es necesario cambiar el valor
         $request->validate([
-            'name' => 'sometimes|required|string',
-            'surname' => 'sometimes|required|string',
+            'nom' => 'sometimes|required|string',
+            'cognom' => 'sometimes|required|string',
             'email' => 'sometimes|required|email',
         ]);
 
-        // Busca el modelo Alumnat por id
-        $alumne = Alumnat::findOrFail($id);
-
         // Actualiza los campos del modelo con los datos del formulario
-        $alumne->name = $request->input('nom', $alumne->nom);
-        $alumne->surname = $request->input('cognom', $alumne->cognom);
-        $alumne->email = $request->input('email', $alumne->email);
+        $alumnat->nom = $request->input('nom');
+        $alumnat->cognom = $request->input('cognom');
+        $alumnat->email = $request->input('email');
 
         // Guarda los cambios en la base de datos
-        $alumne->save();
+        $alumnat->save();
 
         // Redirige a la view 
-        return redirect()->route('nombre_de_la_ruta_despues_de_actualizar', $alumne->id)
-            ->with('success', '¡Se ha actualizado!');
+        return redirect()->route('getAlumnat');
     }
 
     /**
