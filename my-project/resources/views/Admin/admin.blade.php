@@ -8,7 +8,7 @@
 <body>
     <h1>BENVINGUT/DA ADMIN</h1>
     <div>
-        <a href="{{ route('centres') }}">CENTRES</a>
+        <a href="{{ route('getCentres') }}">CENTRES</a>
         <a href="{{ route('professorat') }}">PROFESSORAT</a>
         <a href="{{ route('alumnat') }}">ALUMNAT</a>
     </div><br>
