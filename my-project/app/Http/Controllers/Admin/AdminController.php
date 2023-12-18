@@ -65,39 +65,39 @@ class AdminController extends Controller
     }
 
     // Funció que té un array de alumnes i retorna els valor a la view de Admin
-    public function alumnat() {
-        $alumnes = array(
-            array(
-                "id" => "1",
-                "nom" => "Carles",  
-                "cognom" => "Canals",
-                "rol" => "Alumne",
-                "email" => "carles@carles.com",
-            ),
-            array(
-                "id" => "2",
-                "nom" => "Sofia",  
-                "cognom" => "Taraco",
-                "rol" => "Alumne",
-                "email" => "sofia@sofia.com",
-            ),
-            array(
-                "id" => "3",
-                "nom" => "Francesc",  
-                "cognom" => "Riugal",
-                "rol" => "Alumne",
-                "email" => "fran@fran.com",
-            ),
-            array(
-                "id" => "4",
-                "nom" => "Laia",  
-                "cognom" => "Ibañez",
-                "rol" => "Alumne",
-                "email" => "laia@laia.com",
-            ),
-        );
-        return view('Admin.alumnes')->with(['alumnes' => $alumnes]);
-    }
+    // public function alumnat() {
+    //     $alumnes = array(
+    //         array(
+    //             "id" => "1",
+    //             "nom" => "Carles",  
+    //             "cognom" => "Canals",
+    //             "rol" => "Alumne",
+    //             "email" => "carles@carles.com",
+    //         ),
+    //         array(
+    //             "id" => "2",
+    //             "nom" => "Sofia",  
+    //             "cognom" => "Taraco",
+    //             "rol" => "Alumne",
+    //             "email" => "sofia@sofia.com",
+    //         ),
+    //         array(
+    //             "id" => "3",
+    //             "nom" => "Francesc",  
+    //             "cognom" => "Riugal",
+    //             "rol" => "Alumne",
+    //             "email" => "fran@fran.com",
+    //         ),
+    //         array(
+    //             "id" => "4",
+    //             "nom" => "Laia",  
+    //             "cognom" => "Ibañez",
+    //             "rol" => "Alumne",
+    //             "email" => "laia@laia.com",
+    //         ),
+    //     );
+    //     return view('Admin.Alumnat.alumnes')->with(['alumnes' => $alumnes]);
+    // }
 
     // Obte les dades del formulari de inici i comprova que siguin correctes
     public function usuaris(Request $request) {
@@ -105,8 +105,8 @@ class AdminController extends Controller
         $password = $request->input('password');
 
     // Si els valors son iguals a les credencials de Admin, retornara la view admin
-    return $email == "obret" && $password == "sesam" 
-                     ? view('Admin.admin') : view('signin'); 
+        return $email == "obret" && $password == "sesam" 
+                         ? view('Admin.admin') : view('signin'); 
     }
 
     // Aquesta funció retorna a la view de Admin per no surtir al login cada vegada
