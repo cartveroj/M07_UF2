@@ -55,12 +55,12 @@ class AlumnatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Alumnat $alumnat)
+    public function show($id)
     {
         //la funcion show() sirve para mostrar los detalles de uno en especifico, puede buscarse por id 
         // Obtiene todos los alumnos
-        $alumnes = Alumnat::all();
-        return view('Admin.Alumnat.alumnes', ['alumnes' => $alumnes]);
+        $alumne = Alumnat::findOrFail($id);
+        return view('Admin.Alumnat.showAlumnat', ['alumne' => $alumne]);
     }
 
     /**
@@ -69,6 +69,7 @@ class AlumnatController extends Controller
     public function edit($id)
     {
         //si se le pasa el objeto no hace falta hacer un findOrFail($id), laravel lo hace automatico
+        //si se le pasa id en el edit(), en el update tambien debe ser id, no puede haber uno con id y el otro Alumne alumnat
         $alumnat = Alumnat::findOrFail($id);
         //gestiona el form
         return view('Admin.Alumnat.updateAlumnat', ['alumnat' => $alumnat]);
