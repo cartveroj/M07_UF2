@@ -6,6 +6,7 @@
     <title>Profesor registro</title>
 </head>
 <body>
+    <!-- archivo que se encarga del formulario de insert de profesores -->
 <h1>Creació d'professorat nou</h1>
     <div class="form">
         <form action='{{ route("insertProfessorat") }}' method="post">
@@ -34,7 +35,8 @@
             <button type="submit" class="btn btn-primary" name="submit">Enviar</button>
         </form><br>
         <div>
-            <a href="{{ route('professorat') }}">back</a>
+        <!-- retorna a la vista anterior -->
+            <a href="{{ route('professorat') }}">back</a> 
         </div>
     </div>    
 </body>

@@ -37,6 +37,7 @@ class ProfessoratController extends Controller
             'surname' => 'required|string',
             'email' => 'required|email',
         ]);
+        // verificamos si los campos son vacios y retorna un mensaje 
         $error = [];
         if(empty($request->input('name'))){
             $error["name"] = "El nom es obligatorio";
@@ -48,6 +49,7 @@ class ProfessoratController extends Controller
             $error["email"] = "El email es obligatorio";
         }
         if (count($errors) > 0) {
+
             return redirect()->route('createProfessorat')->withErrors($errors);
         }else{
             $profesorat = new Professorat;
@@ -67,6 +69,9 @@ class ProfessoratController extends Controller
      */
     public function show($id)
     {
+        // devuelve un registro con el ID especificado. 
+        // Si no se encuentra ningún registro, 
+        //lanza una excepción ModelNotFoundException.
         $professor = Professorat::findOrFail($id);
         
         return view('Admin.Professorat.ShowProfessorat', ['professor' => $professor]);

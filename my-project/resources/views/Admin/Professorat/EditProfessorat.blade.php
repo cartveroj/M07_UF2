@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesor registro</title>
+    <title>Profesor edit</title>
 </head>
 <body>
+    <!-- archivo que se encarga de hacer el update por cada profesor -->
 <h1>Editar Profesor </h1>
     <div class="form">
     <form action="{{ route('updateProfessorat', $professorat->id) }}" method="post">

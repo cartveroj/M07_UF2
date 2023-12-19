@@ -6,16 +6,14 @@
     <title>Profesor registro</title>
 </head>
 <body>
-<h1>Detalles del Profesor</h1>
-    
+    <!-- archivo que muestra los datos del registro seleccionado -->
+    <h1>Detalles del Profesor</h1>
     <div>
         <p><strong>ID:</strong> {{ $professor->id }}</p>
         <p><strong>Nombre:</strong> {{ $professor->nom }}</p>
         <p><strong>Apellidos:</strong> {{ $professor->cognom }}</p>
         <p><strong>Email:</strong> {{ $professor->email }}</p>
-        <!-- Agrega más detalles según las propiedades de tu modelo -->
     </div>
-    
     <a href="{{ route('getProfessorat') }}">Volver</a>
 </body>
 </html>
