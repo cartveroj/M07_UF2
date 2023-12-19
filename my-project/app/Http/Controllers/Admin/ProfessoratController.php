@@ -32,22 +32,44 @@ class ProfessoratController extends Controller
      */
     public function store(Request $request)
     {
-        $profesorat = new Professorat;
-        $profesorat->nom = $request->input('name');
-        $profesorat->cognom = $request->input('surname');
-        $profesorat->email = $request->input('email');
+        $request->validate([
+            'name' => 'required|string',
+            'surname' => 'required|string',
+            'email' => 'required|email',
+        ]);
+        $error = [];
+        if(empty($request->input('name'))){
+            $error["name"] = "El nom es obligatorio";
+        }
+        if(empty($request->input('surname'))){
+            $error["surname"] = "El apellido es obligatorio";
+        }
+        if(empty($request->input('email'))){
+            $error["email"] = "El email es obligatorio";
+        }
+        if (count($errors) > 0) {
+            return redirect()->route('createProfessorat')->withErrors($errors);
+        }else{
+            $profesorat = new Professorat;
+            $profesorat->nom = $request->input('name');
+            $profesorat->cognom = $request->input('surname');
+            $profesorat->email = $request->input('email');
+            
+            $profesorat->save();
+            
+            return redirect()->route('getProfessorat')->with('mensaje', "Actualizado correctamente");
+        }
         
-        $profesorat->save();
-        
-        return redirect('admin_db/professorat')->with('flash_message', 'Professorat añadido!');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Professorat $profesorat)
+    public function show($id)
     {
-        return view('Admin.Professorat.professorat');
+        $professor = Professorat::findOrFail($id);
+        
+        return view('Admin.Professorat.ShowProfessorat', ['professor' => $professor]);
     }
 
     /**
@@ -55,7 +77,8 @@ class ProfessoratController extends Controller
      */
     public function edit($id)
     {
-        $professorat = Professorat::find($id);
+        $professorat = Professorat::findOrFail($id);
+
         return view ('Admin.Professorat.EditProfessorat', ['professorat' => $professorat]);
     }
 
@@ -72,7 +95,7 @@ class ProfessoratController extends Controller
     
         $professor->save();
     
-        return redirect()->route('getProfessorat');
+        return redirect()->route('getProfessorat')->with('mensaje', "Actualizado correctamente");
     }
 
     /**
@@ -82,7 +105,7 @@ class ProfessoratController extends Controller
     {
         $professor = Professorat::findOrFail($id);
         $professor->delete();
-        return redirect()->route('getProfessorat')->with('success', 'Professor eliminado correctamente');
+        return redirect()->route('getProfessorat')->with('mensaje', 'Professor eliminado correctamente');
     }
 
 }

@@ -6,28 +6,31 @@
     <title>Profesor registro</title>
 </head>
 <body>
-<h1>Creació d'usuari nou</h1>
+<h1>Creació d'professorat nou</h1>
     <div class="form">
         <form action='{{ route("insertProfessorat") }}' method="post">
             @csrf
-
-            <!-- <input type="hidden" name="_token"> -->
             <div class="mb-3"> 
                 <label for="name">Nom </label>
                 <input type="text" name="name">
+                @error('name') <!--variable que recibe del controlador del array de errores -->
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-3"> 
                 <label for="surname">Cognoms </label>
                 <input type="text" name="surname">
+                @error('surname') <!--variable que recibe del controlador del array de errores -->
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-3"> 
                 <label for="email">Email</label>
                 <input type="email" name="email">
+                @error('email') <!--variable que recibe del controlador del array de errores -->
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
             </div>
-            <!-- <div class="mb-3"> 
-                <label for="active"> Actiu </label>
-                <input type="checkbox" name="active">
-            </div><br> -->
             <button type="submit" class="btn btn-primary" name="submit">Enviar</button>
         </form><br>
         <div>

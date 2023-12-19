@@ -27,4 +27,5 @@ use App\Http\Controllers\Admin\ProfessoratController;
          Route::get('/professorat/{id}/edit', [ProfessoratController::class, 'edit'])->name('editProfessorat');
          Route::put('/UpdateProfessorat/{id}', [ProfessoratController::class, 'update'])->name('updateProfessorat');
          Route::delete('/DeleteProfessorat/{id}', [ProfessoratController::class, 'destroy'])->name('destroyProfessorat');
+         Route::get('/professorat/{id}', [ProfessoratController::class, 'show'])->name('showProfessorat');
         }); 
