@@ -25,7 +25,7 @@ class AlumnatController extends Controller
      */
     public function create()
     {
-        //fichero de view con el formulario
+        //redirige al fichero de view con el formulario
         return view('Admin.Alumnat.createAlumnat');
     }
 
@@ -41,7 +41,7 @@ class AlumnatController extends Controller
             'email' => 'required|email|unique:alumnat,email',
         ]);
 
-        //guardar a la tabla.Laravel gestiona la consulta de guardar les dades del formulari a la taula especificada en el projecte de Laravel
+        //guardar a la tabla.Laravel gestiona la consulta de inserir les dades del formulari a la taula especificada en el projecte de Laravel
         // Crear un nuevo modelo Alumnat con los datos del formulario
         Alumnat::create([
             'nom' => $request->input('nom'),
@@ -49,7 +49,6 @@ class AlumnatController extends Controller
             'email' => $request->input('email'),
         ]);
         return view('Admin.Alumnat.createAlumnat');
-        // return view('Admin.Alumnat.createAlumnat')->with('success', 'Alumne afegit correctament');
     }
 
     /**
@@ -71,7 +70,7 @@ class AlumnatController extends Controller
         //si se le pasa el objeto no hace falta hacer un findOrFail($id), laravel lo hace automatico
         //si se le pasa id en el edit(), en el update tambien debe ser id, no puede haber uno con id y el otro Alumne alumnat
         $alumnat = Alumnat::findOrFail($id);
-        //gestiona el form
+        //redirige al form
         return view('Admin.Alumnat.updateAlumnat', ['alumnat' => $alumnat]);
     }
 
@@ -106,6 +105,7 @@ class AlumnatController extends Controller
      */
     public function destroy($id)
     {
+        //busca el alumno por id
         $alumne = Alumnat::findOrFail($id);
         $alumne->delete();
 
