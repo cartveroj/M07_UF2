@@ -6,7 +6,7 @@
     <title>Alumnat CRUD</title>
 </head>
 <body>
-    <h1>Details for alumne {{ $alumne->nom }}</h1>
+    <h1>Detalls del alumne {{ $alumne->nom }}</h1>
     <table>
         <tr>
             <th>ID</th>
@@ -19,18 +19,18 @@
             <td>{{ $alumne->nom }}</td>
             <td>{{ $alumne->cognom }}</td>
             <td>{{ $alumne->email }}</td>
-            <td> <a href="{{ route('editAlumnat', $alumne->id) }}">EDIT</a></td>
+            <td> <button type="button" onclick="window.location='{{ route('editAlumnat', $alumne->id) }}'" class="btn btn-info" style="color:blue">Edit</button></td>
             <td>
                 <form method="post" action="{{ route('destroyAlumnat', $alumne->id) }}">
                     @method('delete')
                     @csrf
-                    <button type="submit">DELETE</button>
+                    <button type="submit" style="color: red">DELETE</button>
                 </form>
             </td>
         </tr>
     </table><br>
     <div>
-        <a href="{{ route('getAlumnat') }}">Tornar enrere</a><br>
+        <a href="{{ route('getAlumnat') }}" >Tornar enrere</a><br>
         <a href="{{ route('admin_view') }}">ADMIN VISTA</a>
     </div>
 </body>
