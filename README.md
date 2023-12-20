@@ -1,4 +1,8 @@
 # M07_UF2: Pràctica 4 - CRUD
+
+**Veronica, Oriana y Joana** 
+[link_video_UF2_Ejercicio_P4](https://drive.google.com/file/d/19lKupag4EiCVhRcI_RjmYJasWlr4IOy0/view?usp=drive_link)
+
 ## ENUNCIAT
 Crear un aplicatiu amb Laravel 10 on es pugui fer CRUD en **3 taules diferents** (centres, professorat i alumnat). Seguint la lògica de les anteriors pràctiques, el circuit serà loguejar-se com a admin i la primera vista de l’admin serà la de benvinguda. 
 
