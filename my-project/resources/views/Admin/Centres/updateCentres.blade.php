@@ -27,7 +27,7 @@
                 <label for="city">City</label>
                 <input type="text" name="city" value="{{ $centres->ciutat }}">
             </div><br>
-            <button type="submit" class="btn btn-primary" name="submit">Edit</button>
+            <button type="submit" class="btn btn-primary" name="submit">guardar</button>
         </form>
         <div>
             <a href="{{ route('getCentres') }}">Back</a>

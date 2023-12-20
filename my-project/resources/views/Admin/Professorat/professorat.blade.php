@@ -37,7 +37,6 @@
             <th>ID</th>
             <th>NAME</th>
             <th>SURNAME</th>
-            <th>ROL</th>
             <th>EMAIL</th>
         </tr>
         @foreach($professors as $professor) 
@@ -45,7 +44,6 @@
             <td>{{ $professor['id'] }}</td>
             <td>{{ $professor['nom'] }}</td>
             <td>{{ $professor['cognom'] }}</td>
-            <td>{{ $professor['rol'] }}</td>
             <td>{{ $professor['email'] }}</td>
             <!-- boton que lleva a la ruta de edit -->
             <td><a href="{{ route('editProfessorat', ['id' => $professor['id']]) }}"><button class="edit">edit</button></a></td>

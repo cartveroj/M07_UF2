@@ -48,9 +48,10 @@ class ProfessoratController extends Controller
         if(empty($request->input('email'))){
             $error["email"] = "El email es obligatorio";
         }
-        if (count($errors) > 0) {
+        if (count($error) > 0) {
 
             return redirect()->route('createProfessorat')->withErrors($errors);
+        
         }else{
             $profesorat = new Professorat;
             $profesorat->nom = $request->input('name');
@@ -59,7 +60,7 @@ class ProfessoratController extends Controller
             
             $profesorat->save();
             
-            return redirect()->route('getProfessorat')->with('mensaje', "Actualizado correctamente");
+            return redirect()->route('getProfessorat')->with('mensaje', "Introducido correctamente");
         }
         
     }

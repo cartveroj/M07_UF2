@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('centre', function (Blueprint $table) {
+        Schema::create('centres', function (Blueprint $table) {
             // crea els camps de la taula amb el tipus del valor
             $table->increments('id');
             $table->timestamps();
